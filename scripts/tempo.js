@@ -44,7 +44,9 @@ class Chronometer {
 const chronometer = new Chronometer();
 // get the buttons:
 const startButton = document.getElementById('startButton');
-const clock = document.getElementById ('clock')
+const resetButton = document.getElementById('resetTime');
+const clock = document.getElementById ('clock');
+
 
 // get the DOM elements that will serve us to display the time:
 const minDecElement = document.getElementById('minDec');
@@ -69,8 +71,12 @@ function printSeconds() {
     secUniElement.innerText = chronometer.computeTwoDigitNumber(segundos)[1];
 }
 
-startButton.addEventListener('click', () => {
+startButton.addEventListener('click', () => {    
     chronometer.start(printTime);
     startButton.classList.toggle('no-show');
-    clock.classList.toggle('show')
+    clock.classList.toggle('show');
+});
+
+resetButton.addEventListener('click', () => {
+    chronometer.reset();       
 });

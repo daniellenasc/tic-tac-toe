@@ -182,7 +182,8 @@ header {
     text-align: center;    
 }
 
-.restart-button {
+.reset-time,
+.restart-game {
     background-color: rgba(0, 0, 0, 0.5);
     color: rgb(255, 255, 255);
     font-family: 'Montserrat', sans-serif;  
@@ -192,7 +193,8 @@ header {
     transition-duration: 0.4s;    
 }
  
-.restart-button:hover {
+.reset-time:hover,
+.restart-game:hover {
     background-color: rgb(255, 255, 255, 0.5);
     color: rgba(0, 0, 0);   
     font-family: 'Montserrat', sans-serif;  
