@@ -23,12 +23,21 @@
 
 <!-- PLACAR E CRONÔMETRO -->
     <div class="info"> 
-        <article class="time"> Time:  </article>  
-        <br>     
-        <article class="score">
+        <button type="button" class="start-button" id="startButton"> Start </button> 
+        <section class="no-show" id="clock">
+            <div id="sphere">
+              <span id="minDec" class="number">0</span>
+              <span id="minUni" class="number">0</span>
+              <span>:</span>
+              <span id="secDec" class="number">0</span>
+              <span id="secUni" class="number">0</span>            
+            </div>
+          </section>
+          
+        <section class="score">
             <p> Player X: 0 </p>
             <p> Player O: 0 </p>
-        </article>
+        </section>
     </div>
     
 
@@ -47,12 +56,9 @@
 
 <!-- BOTÃO RESTART ??? TYPE RESTART ??? -->
     <div class="restart">
-        <button type="button" id="restartButton">Restart</button>
+        <button type="button" class="restart-button">Restart</button>
     </div>
 
-<!-- BOTÃO START 
-    <div>  </div>-->
-   
-    
+    <script src="./scripts/tempo.js"></script>    
 </body>
 </html>
