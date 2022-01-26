@@ -47,7 +47,7 @@ header {
     align-content: center;
     justify-items: center; /* para X e O ficarem no centro da célula*/
     align-items: center;  /* para X e O ficarem no centro da célula*/
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, auto); /* para ficar o grid 3 x 3 */
 }
 
 .cell {
@@ -61,20 +61,20 @@ header {
     cursor: pointer; /* para criar o X e o O que ficam em cinza antes de clicar na célula */
 }
 
-/* para remover as bordas externas e não ficar um quadrado */
+/* para remover as bordas externas do board e não ficar um quadrado */
 .cell:first-child,
-.cell:nth-child(2),
+.cell:nth-child(2), /* cells 0, 1, 2 */
 .cell:nth-child(3) {
     border-top: none;    
 }
 .cell:nth-child(3n + 1){
-    border-left: none;
+    border-left: none; /* cells 0, 3, 6 */
 }
 .cell:nth-child(3n + 3){
-    border-right: none;
+    border-right: none; /* cells 2, 5, 8 */
 }
 .cell:last-child,
-.cell:nth-child(7),
+.cell:nth-child(7), /* cells 6, 7, 8 */
 .cell:nth-child(8) {
     border-bottom: none;    
 }
@@ -90,7 +90,7 @@ header {
 .board.x .cell:not(.x):not(.circle):hover::before,
 .board.x .cell:not(.x):not(.circle):hover::after,
 .board.circle .cell:not(.x):not(.circle):hover::before {
-    background-color: lightgrey;
+    background-color: rgb(104, 104, 104);
 }
 
 /* para deixar o X e o O colorido depois de ser clicado */
@@ -105,6 +105,7 @@ header {
 
 
 /* para fazer o X e o O, sobrepoe-se um X ou um O sobre o outro, usando ::before e ::after  */
+/* Usar letras e números pode dar diferença em diferentes browsers */
 /* criando o X */
 .cell.x::before,
 .cell.x::after,
@@ -125,7 +126,9 @@ header {
     transform: rotate(-45deg);
 }
 
-/* criando o O - círculo */
+
+/* 
+/* criando o O */
 .cell.circle::before,
 .cell.circle::after,
 /* usando HOVER e NOT para criar o O em cinza quando o cursor passar nas células, antes de marcá-lo (só aplique o hover quando a célula não estiver marcada com X ou O)*/
@@ -143,7 +146,17 @@ header {
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::after {
     width: calc(var(--mark-size) * .7);
-    height: calc(var(--mark-size) * .7);    
+    height: calc(var(--mark-size) * .7); 
+    background-color: rgb(255, 255, 255, 0.1);
+} 
+
+
+.no-show {
+    display: none;
+}
+
+.show {
+    display: flex;
 }
 
 
@@ -166,24 +179,16 @@ header {
     font-family: 'Montserrat', sans-serif;  
 }
 
-.no-show {
-    display: none;
-}
-
-.show {
-    display: flex;
-}
-
 
 /* RESTART - PARA REINICIAR O JOGO */
 .restart {
     width: auto;
     height: auto;      
     text-align: center;    
+    margin: 10px;
 }
 
-.reset-time,
-.restart-game {
+.reset-time {
     background-color: rgba(0, 0, 0, 0.5);
     color: rgb(255, 255, 255);
     font-family: 'Montserrat', sans-serif;  
@@ -193,9 +198,49 @@ header {
     transition-duration: 0.4s;    
 }
  
-.reset-time:hover,
-.restart-game:hover {
+.reset-time:hover {
     background-color: rgb(255, 255, 255, 0.5);
     color: rgba(0, 0, 0);   
     font-family: 'Montserrat', sans-serif;  
 }
+
+/* MENSAGEM DO VENCEDOR E BOTÃO RESTART */
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .7);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif; 
+  }
+  
+  .winning-message button {
+    font-family: 'Montserrat', sans-serif; 
+    font-size: 3rem;
+    background-color: rgb(255, 255, 255, 0.5);
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: pointer;
+    transition-duration: 0.4s; 
+    border-radius: 12px;
+  }
+  
+  .winning-message button:hover {
+    font-family: 'Montserrat', sans-serif; 
+    background-color: rgb(0, 0, 0, 0.3);
+    color: white;
+    border-color: white;
+    border-radius: 12px;
+  }
+  
+  .winning-message.show {
+    display: flex;
+  }

@@ -35,17 +35,17 @@
           </section>
           
         <section class="score">
-            <p> Player X: 0 </p>
-            <p> Player O: 0 </p>
+            <p> Player X: <span class="ponto-x" id="pontoX"> 0 </span></p>
+            <p> Player O: <span class="ponto-o" id="pontoO"> 0 </span></p>
         </section>
     </div>
     
 
 <!-- JOGO DA VELHA -->
-    <div class="board x" id="board">
-        <span class="cell x" data-cell></span>
-        <span class="cell circle" data-cell></span>
-        <span class="cell x" data-cell></span>
+    <div class="board" id="board">
+        <span class="cell" data-cell></span>
+        <span class="cell" data-cell></span>
+        <span class="cell" data-cell></span>
         <span class="cell" data-cell></span>
         <span class="cell" data-cell></span>
         <span class="cell" data-cell></span>
@@ -54,12 +54,17 @@
         <span class="cell" data-cell></span>
     </div>
 
-<!-- BOTÃO RESTART ??? TYPE RESTART ??? -->
-    <div class="restart">
-        <button type="button" class="restart-game"> Restart Game </button>
+<!-- BOTÃO RESET TEMPO -->
+    <div class="restart">       
         <button type="button" class="reset-time" id="resetTime"> Reset Time </button>
     </div>
 
-    <script src="./scripts/tempo.js"></script>    
+  <!-- MENSAGEM DO VENCEDOR E BOTÃO RESTART GAME -->  
+    <div class="winning-message" id="winningMessage">
+        <div data-winning-message-text></div>
+        <button id="restartButton">Restart</button>
+    </div>
+    <script src="./scripts/tempo.js"></script>
+    <script src="./scripts/script.js"></script>    
 </body>
 </html>

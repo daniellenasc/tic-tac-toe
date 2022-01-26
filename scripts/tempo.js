@@ -38,10 +38,10 @@ class Chronometer {
 
 
 
-
-
+// DOM
 
 const chronometer = new Chronometer();
+
 // get the buttons:
 const startButton = document.getElementById('startButton');
 const resetButton = document.getElementById('resetTime');
